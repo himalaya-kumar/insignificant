@@ -1,5 +1,7 @@
 package com.ai;
 
+import java.util.stream.IntStream;
+
 import org.deeplearning4j.eval.Evaluation;
 import org.deeplearning4j.nn.api.OptimizationAlgorithm;
 import org.deeplearning4j.nn.conf.MultiLayerConfiguration;
@@ -11,9 +13,13 @@ import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.deeplearning4j.nn.weights.WeightInit;
 import org.nd4j.linalg.activations.Activation;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CnnModel {
 
+	Logger LOGGER = LoggerFactory.getLogger(CnnExample.class);
+	
 	private final IDataSetService dataSetService;
 
 	private final MultiLayerNetwork network;
@@ -32,6 +38,15 @@ public class CnnModel {
 				.layer(5, pooling2x2Stride1()).layer(6, dense()).pretrain(false).backprop(Boolean.TRUE)
 				.setInputType(dataSetService.inputType()).build();
 		network = new MultiLayerNetwork(configuration);
+	}
+
+	void train() {
+		network.init();
+		int epochsNum = properties.getEpochNum();
+		IntStream.range(1, epochsNum + 1).forEach(epoch -> {
+			LOGGER.info("Epoch {} / {}", epoch, epochsNum);
+			network.fit(dataSetService.trainIterator());
+		});
 	}
 
 	/**

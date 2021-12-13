@@ -41,6 +41,12 @@
 			<artifactId>nd4j-native-platform</artifactId>
 			<version>${dl4j.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.16</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.deeplearning4j</groupId>
