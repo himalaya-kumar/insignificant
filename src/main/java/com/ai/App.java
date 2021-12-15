@@ -16,6 +16,5 @@ public class App {
 		LOGGER.info(message);
 		LOGGER.warn(message);
 		LOGGER.error(message);
-		UtilityClass.get().readFileAndGiveDataBackInString(new File("D:\\Projects\\Learn\\Java\\app-10\\AIProject\\src\\main\\resources\\utility\\Testcode_file.txt"));
 	}
 }
