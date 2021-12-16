@@ -16,7 +16,7 @@ import static org.junit.Assert.assertThat;
  * TEST for P03
  */
 
-@DisplayName("Problem_03_Tests")
+@DisplayName("SUITE_3")
 public class Problem_03_Tests {
 
     /**

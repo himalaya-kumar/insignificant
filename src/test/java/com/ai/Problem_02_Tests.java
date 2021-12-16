@@ -19,29 +19,29 @@ import static org.junit.Assert.assertThat;
 /**
  * TESTS for P02
  */
-@DisplayName("Problem_02_Test")
+@DisplayName("SUITE_2")
 public class Problem_02_Tests {
     @Test
-    @DisplayName("+ve:Get Last Element")
+    @DisplayName("TEST_1:Get Last Element")
     public void getLastElement_List_way_Test() {
         assertThat(Problem_02.secondLast(asList("a","b","c","d","e")),is(equalTo("d")));
     }
 
     @Test
-    @DisplayName("Last Element in Linked List")
+    @DisplayName("TEST_2:Last Element in Linked List")
     public void getLastElement_Linked_List_way_Test() {
         LinkedList<String> list = linkedList("a","b","c","d","e");
         assertThat(Problem_02.secondLastRecursion(list),is(equalTo("d")));
     }
 
     @Test
-    @DisplayName("The Recursive Way")
+    @DisplayName("TEST_3:The Recursive Way")
     public void recursion_is_a_way(){
         assertThat(Problem_02.secondLastRecursion(linkedList("a","b","c","d","e")),is(equalTo("d")));
     }
 
     @Test
-    @DisplayName("Exception Verification")
+    @DisplayName("TEST_4:Exception Verification")
     public void noSuchElementExceptionTest(){
         Assertions.assertThrows(NoSuchElementException.class,() -> {
             Problem_02.secondLast(Collections.EMPTY_LIST);

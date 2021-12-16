@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
  * Find the number of element from list
  */
 
-@DisplayName("Problem_04_Tests")
+@DisplayName("SUITE_4")
 public class Problem_04_Tests {
 
     @Test

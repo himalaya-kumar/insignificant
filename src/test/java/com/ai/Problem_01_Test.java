@@ -14,24 +14,24 @@ import static org.junit.Assert.assertThat;
 /**
  * TESTS for P01
  */
-@DisplayName("Problem_01_test")
+@DisplayName("SUITE_1")
 public class Problem_01_Test {
 
     @Test
-    @DisplayName("+ve:Get Last Element")
+    @DisplayName("TEST_1:Get Last Element")
     public void getLastElement_List_way_Test() {
         assertThat(Problem_01.lastElement(asList("a","b","c","d","e")),is(equalTo("e")));
     }
 
     @Test
-    @DisplayName("Last Element in Linked List")
+    @DisplayName("TEST_2:Last Element in Linked List")
     public void getLastElement_Linked_List_way_Test() {
         LinkedList<String> list = linkedList("a","b","c","d","e");
         assertThat(Problem_01.lastElement(list),is(equalTo("e")));
     }
 
     @Test
-    @DisplayName("The Recursive Way")
+    @DisplayName("TEST_3:The Recursive Way")
     public void recursion_is_a_way(){
         assertThat(Problem_01.lastRecursive(asList("a","b","c","d","e")),is(equalTo("e")));
     }
