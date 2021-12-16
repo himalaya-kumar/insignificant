@@ -10,11 +10,15 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.ai.UtilityClass.linkedList;
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * TESTS for P02
+ */
 @DisplayName("Problem_02_Test")
 public class Problem_02_Tests {
     @Test
@@ -42,10 +46,5 @@ public class Problem_02_Tests {
         Assertions.assertThrows(NoSuchElementException.class,() -> {
             Problem_02.secondLast(Collections.EMPTY_LIST);
         });
-    }
-
-    @SafeVarargs
-    public static <T> LinkedList<T> linkedList(T... elements) {
-        return Stream.of(elements).collect(Collectors.toCollection(LinkedList::new));
     }
 }

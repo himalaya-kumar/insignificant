@@ -1,5 +1,8 @@
 package com.ai;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -8,6 +11,8 @@ import java.util.NoSuchElementException;
  * Find the last element in the list
  */
 public class Problem_01 {
+
+    static Logger LOGGER = LoggerFactory.getLogger(Problem_01.class);
 
     /**
      * A Very Straight forward way
@@ -18,6 +23,7 @@ public class Problem_01 {
      */
     public static <T> T lastElement(List<T> elements) {
         int numberOfElements = elements.size();
+        LOGGER.info("Problem_01#lastElement(List),numberOfElements:{}",numberOfElements);
         return elements.get(numberOfElements - 1);
     }
 
@@ -27,9 +33,7 @@ public class Problem_01 {
      * @param <T>
      * @return T
      */
-    public static <T> T lastElement(LinkedList<T> linkedList) {
-        return linkedList.getLast();
-    }
+    public static <T> T lastElement(LinkedList<T> linkedList) { return linkedList.getLast(); }
 
     /**
      * A Unnecessary way
@@ -37,13 +41,14 @@ public class Problem_01 {
      * @param <T>
      * @return T
      */
-    public static <T> T lastRecursive(List<T> element) {
-        if (element == null || element.isEmpty()) {
+    public static <T> T lastRecursive(List<T> elements) {
+        if (elements == null || elements.isEmpty()) {
             throw new NoSuchElementException("No Such Element is present");
         }
-        if (element.size() == 1) {
-            return element.get(0);
+        LOGGER.info("Problem_01#lastRecursive(List),numberOfElements:{}",elements.size());
+        if (elements.size() == 1) {
+            return elements.get(0);
         }
-        return lastElement(element.subList(0,element.size()));
+        return lastElement(elements.subList(0,elements.size()));
     }
 }

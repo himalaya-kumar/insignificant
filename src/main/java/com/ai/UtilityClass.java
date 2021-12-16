@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +40,11 @@ public class UtilityClass {
 			throw new IllegalArgumentException("EMPTY_STRING FROM CATCH");
 		}
 		return "EMPTY_STRING";
+	}
+
+	@SafeVarargs
+	public static <T> LinkedList<T> linkedList(T... elements) {
+		return Stream.of(elements).collect(Collectors.toCollection(LinkedList::new));
 	}
 
 	public static UtilityClass get() {

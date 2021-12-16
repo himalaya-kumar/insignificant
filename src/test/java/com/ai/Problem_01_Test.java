@@ -4,14 +4,16 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
+import static com.ai.UtilityClass.linkedList;
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * TESTS for P01
+ */
 @DisplayName("Problem_01_test")
 public class Problem_01_Test {
 
@@ -33,9 +35,6 @@ public class Problem_01_Test {
     public void recursion_is_a_way(){
         assertThat(Problem_01.lastRecursive(asList("a","b","c","d","e")),is(equalTo("e")));
     }
-    @SafeVarargs
-    public static <T> LinkedList<T> linkedList(T... elements) {
-        return Stream.of(elements).collect(Collectors.toCollection(LinkedList::new));
-    }
+
 
 }
