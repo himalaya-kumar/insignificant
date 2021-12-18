@@ -12,35 +12,38 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+
 /**
  * TEST for P03
  */
 
 @DisplayName("SUITE_3")
-public class Problem_03_Tests {
+public class Probelm_03_Tests {
 
     /**
      * Testing the kth element
      *
-     * @throws Exception
      */
     @Test
-    @DisplayName("Kth Element from the List")
-    public void shouldFindKthElementFromAList() throws Exception{
+    @DisplayName("TEST_1:Kth Element from the List")
+    public void shouldFindKthElementFromAList() {
         List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
-        Integer integer = Integer.valueOf(3);
+        Integer integer = 3;
         assertThat(Problem_03.kth(integers,2),is(equalTo(integer)));
     }
 
     @Test
-    @DisplayName("Kth Element from recursive element")
+    @DisplayName("TEST_2:Kth Element from recursive element")
     public void shouldFindKthElementsFromAListRecursive(){
         LinkedList<Integer> integers = linkedList(1,2,3,4,5);
         assertThat(Problem_03.kthRecursive(integers,2),is(equalTo(3)));
     }
 
+    /**
+     *
+     */
     @Test
-    @DisplayName("Should Find Kth Element From List_Linked List And Stream")
+    @DisplayName("TEST_3:Should Find Kth Element From List_Linked List And Stream")
     public void shouldFindKthElementFromAList_LinkedListAndStream() {
         List<Integer> integerList = Arrays.asList(1,2,3,4,5);
         assertThat(Problem_03.kthStream(integerList,2),is(equalTo(3)));
