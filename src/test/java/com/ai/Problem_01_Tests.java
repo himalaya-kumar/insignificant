@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
  * TESTS for P01
  */
 @DisplayName("SUITE_1")
-public class Problem_01_Test {
+public class Problem_01_Tests {
 
     @Test
     @DisplayName("TEST_1:Get Last Element")
