@@ -18,7 +18,7 @@ import static org.junit.Assert.assertThat;
  */
 
 @DisplayName("SUITE_3")
-public class Probelm_03_Tests {
+public class Problem_03_Tests {
 
     /**
      * Testing the kth element

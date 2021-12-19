@@ -3,7 +3,6 @@ package com.ai;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -15,6 +14,7 @@ import static org.junit.Assert.assertThat;
 public class Problem_09_Tests {
 
     @Test
+    @DisplayName("TEST_1:Should Return a same element with two Unique Element is Passed")
     public void shouldReturnAListWithTwoListElementsWhenAListWithTwoUniqueElementsIsPassed() throws Exception {
 
         List<List<String>> packedList = Problem_09.pack(asList("a", "b"));
@@ -25,6 +25,7 @@ public class Problem_09_Tests {
     }
 
     @Test
+    @DisplayName("TEST_2:Should Pack Consecutive in their own list")
     public void shouldPackConsecutiveDuplicatesInTheirOwnLists_small() throws Exception {
         List<List<String>> packedList = Problem_09.pack(asList("a", "a", "b", "a"));
         assertThat(packedList.size(), is(equalTo(3)));
@@ -34,6 +35,7 @@ public class Problem_09_Tests {
     }
 
     @Test
+    @DisplayName("TEST_3:Should Pack Consecutive duplicates in their own list")
     public void shouldPackConsecutiveDuplicatesInTheirOwnLists() throws Exception {
         List<List<String>> packedList = Problem_09.pack(asList("a", "a", "a", "a", "b", "c", "c", "a", "a", "d", "e", "e", "e", "e"));
         assertThat(packedList.size(), is(equalTo(6)));

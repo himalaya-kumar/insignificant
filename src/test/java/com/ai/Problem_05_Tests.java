@@ -35,6 +35,7 @@ public class Problem_05_Tests {
     }
 
     @Test
+    @DisplayName("TEST_3:Should Reverse A List Stream")
     public void shouldReverseAList_Stream() throws Exception {
         ArrayDeque<Integer> numbers = arrayDeque(1, 2, 3, 4, 5);
         Assert.assertThat(Problem_05.reverseCustomStream(numbers), is(equalTo(Arrays.asList(5, 4, 3, 2, 1))));
