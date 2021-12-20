@@ -4,9 +4,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-/**
- * Extract a given number of randomly selected elements from a list
- */
+
 public class Problem_23_Tests {
 
     /**
