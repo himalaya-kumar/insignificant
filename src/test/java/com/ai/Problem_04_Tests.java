@@ -1,13 +1,15 @@
 package com.ai;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Find the number of element from list
@@ -19,7 +21,7 @@ public class Problem_04_Tests {
     @Test
     @DisplayName("TEST_1:Empty list should be 0")
     public void listOfEmptyShouldBe0(){
-        int length = Problem_04.length(Collections.EMPTY_LIST);
-        assertThat(length,is(equalTo(0)));
+        int length = Problem_04.length((List<?>) Collections.EMPTY_LIST);
+        assertThat(length,is(0));
     }
 }

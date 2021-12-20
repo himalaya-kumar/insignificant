@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import static com.ai.UtilityClass.linkedList;
@@ -43,7 +44,7 @@ public class Problem_02_Tests {
     @DisplayName("TEST_4:Exception Verification")
     public void noSuchElementExceptionTest() {
         Assertions.assertThrows(NoSuchElementException.class, () -> {
-            Problem_02.secondLast(Collections.EMPTY_LIST);
+            Problem_02.secondLast((List<?>) Collections.EMPTY_LIST);
         });
     }
 }
