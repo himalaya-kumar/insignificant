@@ -41,10 +41,23 @@ public class Problem_23 {
         return result;
     }
 
-//    public static <T> List<T> randomSelect_imperative(List<T> list,int n){
-//        List<T> result = new ArrayList<>();
-//        Random random = new Random();
-//        List<T> remaining = list;
-//
-//    }
+    /**
+     *
+     * @param list
+     * @param n
+     * @param <T>
+     * @return
+     */
+    public static <T> List<T> randomSelect_imperative(List<T> list,int n){
+        List<T> result = new ArrayList<>();
+        Random random = new Random();
+        List<T> remaining = list;
+        while (result.size() < n) {
+            Object[] objects = Problem_20.removeAt0(remaining,random.nextInt(remaining.size()));
+            remaining = (List<T>) objects[0];
+            T t = (T) objects[1];
+            result.add(t);
+        }
+        return result;
+    }
 }

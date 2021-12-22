@@ -9,6 +9,9 @@ import java.util.NoSuchElementException;
 
 /**
  * Find the last element in the list
+ * Logs: Problem_01#lastElement Static Method
+ * Logs: Problem_01()#lastElement Constructor method
+ *
  */
 public class Problem_01 {
 
