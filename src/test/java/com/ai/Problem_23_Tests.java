@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,6 +20,22 @@ public class Problem_23_Tests {
     @DisplayName("TEST_1:Should Return List of three random selected elements")
     public void shouldReturnAListOfThreeRandomSelectedElement(){
         List<String> result = Problem_23.randomSelect(Stream.of("a","b","c","d","e").collect(Collectors.toList()), 3);
+        logger.info("Randomly Created List:{}",result);
+        assertThat(result,hasSize(3));
+    }
+
+    @Test
+    @DisplayName("TEST_2:Should Return List of three random selected elements")
+    public void shouldReturnAListOfThreeRandomSelectedElement_recursive(){
+        List<String> result = Problem_23.randomSelectR(Stream.of("a","b","c","d","e").collect(Collectors.toList()), 3);
+        logger.info("Randomly Created List:{}",result);
+        assertThat(result,hasSize(3));
+    }
+
+    @Test
+    @DisplayName("TEST_3:Should Return List of three random selected elements")
+    public void shouldReturnAListOfThreeRandomSelectedElement_imperative(){
+        List<String> result = Problem_23.randomSelectR(Stream.of("a","b","c","d","e").collect(Collectors.toList()), 3);
         logger.info("Randomly Created List:{}",result);
         assertThat(result,hasSize(3));
     }
