@@ -13,15 +13,16 @@ import java.util.stream.StreamSupport;
  */
 public class Problem_05 {
 
-    public static Logger LOGGER = LoggerFactory.getLogger(Problem_05.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(Problem_05.class);
 
     /**
      * Java Provided reverse list
-     * @param @code{List<T>} list
-     * @param <T>
-     * @return
+     *
+     * @param list List of elements
+     * @return reversed list
      */
     public static <T> List<T> reverseList(List<T> list){
+
         if (list.isEmpty()) {
             LOGGER.info("Problem_05#reverseList(list):Empty list is a not right argument for method");
             throw new IllegalArgumentException("Empty list is a right argument for Problem_05#reverseList(list)");
@@ -32,9 +33,9 @@ public class Problem_05 {
 
     /**
      * For loop to reverse the list
-     * @param list
-     * @param <T>
-     * @return
+     *
+     * @param list list of elements
+     * @return {@link List<T>} Reversed List
      */
     public static <T> List<T> reverseList_ForEach(List<T> list) {
         if (list.isEmpty()) {
@@ -50,7 +51,7 @@ public class Problem_05 {
 
     /**
      * Int stream reverse list
-     * @param <T>
+     *
      * @return List<T>
      */
     public static <T> List<T> reverse_IntStream(List<T> list){
