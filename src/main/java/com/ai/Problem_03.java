@@ -13,36 +13,42 @@ import java.util.stream.Collectors;
  */
 public class Problem_03 {
 
-    public static Logger LOGGER = LoggerFactory.getLogger(Problem_03.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Problem_03.class);
 
     /**
      * Get Kth element from the list
      *
-     * @param list
-     * @param k
-     * @param <T>
-     * @return T
+     * @param list List of elements
+     * @param k index
+     * @param <T> Type Parameter
+     * @return Type Parameter
      */
     public static <T> T kth(final List<T> list, final int k) {
+
+        LOGGER.info("Problem_03#kth(list,int)");
         LOGGER.info("Problem_03#kth({},{})", list, k);
+
         return list.get(k);
     }
 
     /**
      * Using the recursive way
      *
-     * @param linkedList
-     * @param k
-     * @param <T>
-     * @return T
+     * @param linkedList list of T
+     * @param k index of element
+     * @param <T> Type Parameter
+     * @return Type Parameter T
      */
     public static <T> T kthRecursive(final LinkedList<T> linkedList, final int k) {
+
+        LOGGER.info("Problem_03#kthRecursive(linkedList,int)");
+        LOGGER.info("Problem_03#kthRecursive({},{})",linkedList,k);
+
         if (k == 0) {
             LOGGER.info("Problem_03#kthRecursive(LinkedList):k==0");
             return linkedList.getFirst();
         }
 
-        LOGGER.info("Problem_03#kthRecursive({},{}):", linkedList, k);
         return kthRecursive(new LinkedList<>(linkedList.subList(1, linkedList.size())), k - 1);
     }
 
@@ -50,10 +56,16 @@ public class Problem_03 {
      * Get The kth element from the list
      * k+1 set the stream to the limit
      *
-     * @param <T>
-     * @return T
+     * @param <T> Type Parameter
+     * @return Type Parameter T
      */
     public static <T> T kthStream(final List<T> list, final int k) {
-        return list.stream().limit(k + 1).collect(Collectors.toCollection(LinkedList::new)).getLast();
+
+        LOGGER.info("Problem_03#kthStream(list,int)");
+        LOGGER.info("Problem_03#kthStream({},{})",list,k);
+
+        return list.stream().limit(k + 1)
+                .collect(Collectors.toCollection(LinkedList::new))
+                .getLast();
     }
 }

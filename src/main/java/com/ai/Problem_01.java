@@ -20,9 +20,9 @@ public class Problem_01 {
     /**
      * A Very Straight forward way
      *
-     * @param elements
-     * @param <T>
-     * @return T
+     * @param elements list of elements of Type <T>
+     * @param <T> Type Parameter
+     * @return Type T Element
      */
     public static <T> T lastElement(List<T> elements) {
         int numberOfElements = elements.size();
@@ -33,8 +33,8 @@ public class Problem_01 {
     /**
      * Date Structure way or already done for you way
      *
-     * @param <T>
-     * @return T
+     * @param <T> Type Parameter
+     * @return Type T Element
      */
     public static <T> T lastElement(LinkedList<T> linkedList) {
         LOGGER.info("Problem_01#lastElement(LinkedList)");
@@ -42,10 +42,10 @@ public class Problem_01 {
     }
 
     /**
-     * A Unnecessary way
+     * Unnecessary way it seems
      *
-     * @param <T>
-     * @return T
+     * @param <T> Type Parameter
+     * @return Type T Element
      */
     public static <T> T lastRecursive(List<T> elements) {
         if (elements == null || elements.isEmpty()) {
@@ -54,7 +54,7 @@ public class Problem_01 {
         }
         LOGGER.info("Problem_01#lastRecursive(List),numberOfElements:{}", elements.size());
         if (elements.size() == 1) {
-            LOGGER.info("Problem_01#lastRecursive(List),numberOfElements:{}", elements.get(0));
+            LOGGER.info("Problem_01#lastRecursive(List):elements.size() == 1");
             return elements.get(0);
         }
         return lastElement(elements.subList(0, elements.size()));

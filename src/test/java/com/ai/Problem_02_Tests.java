@@ -37,7 +37,8 @@ public class Problem_02_Tests {
     @Test
     @DisplayName("TEST_3:The Recursive Way")
     public void recursion_is_a_way() {
-        assertThat(Problem_02.secondLastRecursion(linkedList("a", "b", "c", "d", "e")), is(equalTo("d")));
+        LinkedList<String> linkedList = linkedList("a", "b", "c", "d", "e");
+        assertThat(Problem_02.secondLastRecursion(linkedList), is("d"));
     }
 
     @Test
