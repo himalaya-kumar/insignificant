@@ -26,12 +26,29 @@ public class Problem_04_Tests {
     }
 
     @Test
-    @DisplayName("TEST_2:Length of List Using Stream")
-    public void testLengthOfListUsingStream(){
+    @DisplayName("TEST_2:Length of List Using Sum of Stream")
+    public void testLengthOfListUsingStream_01(){
         long length = Problem_04.lengthStream_01(asList("a","b","c","d"));
         long lengthExpected = 4L;
 
         assertThat(length,is(lengthExpected));
     }
 
+    @Test
+    @DisplayName("TEST_3:Length of List Using Stream count")
+    public void testLengthOfListUsingStream(){
+        long length = Problem_04.lengthStream(asList("a","b","c","d"));
+        long lengthExpected = 4L;
+
+        assertThat(length,is(lengthExpected));
+    }
+
+    @Test
+    @DisplayName("TEST_4:Length of List Using Recursion")
+    public void testLengthOfListUsingRecursion(){
+        long length = Problem_04.lengthRecursive(asList("a","b","c","d"));
+        long lengthExpected = 4L;
+
+        assertThat(length,is(lengthExpected));
+    }
 }
