@@ -61,20 +61,26 @@ public class Problem_05 {
         }
         int size = list.size();
         return IntStream.iterate(size - 1,el -> el - 1)
+                .peek(el1 -> LOGGER.info("{},{}",size -1,el1 -1))
                 .limit(size)
                 .mapToObj(list::get).collect(Collectors.toList());
     }
 
     /**
-     * Custom Stream
-     * @param list
-     * @param <T>
-     * @return
+     * Custom Stream Using Array Deque
+     *
+     * @param list List of Stream
+     * @param <T> Type Parameter
+     * @return List of reversed elements
      */
     public static <T> List<T> reverseCustomStream(ArrayDeque<T> list){
-        if (list == null) {
-            LOGGER.info("Problem_05#reverse_IntStream(list):Null Argument");
-            throw new IllegalArgumentException("Argument Can't be null");
+        LOGGER.info("Problem_05#reverseCustomStream(ArrayDeque)");
+        Objects.requireNonNull(list,"List can not be null");
+        LOGGER.info("Problem_05#reverseCustomStream({})",list);
+
+        if (list.isEmpty()) {
+            LOGGER.info("Problem_05#reverseCustomStream(list):Empty List Argument");
+            throw new IllegalArgumentException("Argument Can't be empty");
         }
         return StreamSupport
                 .stream(Spliterators.spliteratorUnknownSize(list.descendingIterator(),Spliterator.ORDERED),false)
@@ -82,13 +88,18 @@ public class Problem_05 {
     }
 
     /**
-     * Reverse linked list
-     * @param linkedList
-     * @param <T>
-     * @return
+     * Reverse linked list for each
+     *
+     * @param linkedList Linked list of elements
+     * @param <T> Type Parameter
+     * @return List<T> Reversed List
      */
     public static <T> List<T> reverse(LinkedList<T> linkedList) {
-        if (linkedList == null) {
+        LOGGER.info("Problem_05#reverse(linkedList)");
+        Objects.requireNonNull(linkedList,"List can not be null");
+        LOGGER.info("Problem_05#reverseCustomStream({})",linkedList);
+
+        if (linkedList.isEmpty()) {
             LOGGER.info("Problem_05#reverse_IntStream(list):Argument Can't be null");
             throw new IllegalArgumentException("Argument Can't be null");
         }
