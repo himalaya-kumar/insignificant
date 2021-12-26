@@ -11,10 +11,12 @@ public class Problem_10 {
 
     /**
      * Length encoding of a list
-     * @param <T>
-     * @return
+     *
+     * @param <T> Type Parameter
+     * @return encoded list of SimpleEntry<Integer,T>
      */
-    public static <T>List<AbstractMap.SimpleEntry<Integer,T>> encode(List<T> list){
-        return Problem_09.pack(list).stream().map(l -> new AbstractMap.SimpleEntry<>(l.size(),l.get(0))).collect(Collectors.toList());
+    public static <T> List<AbstractMap.SimpleEntry<Integer, T>> encode(List<T> list) {
+
+        return Problem_09.pack(list).stream().map(list1 -> new AbstractMap.SimpleEntry<>(list1.size(), list1.get(0))).collect(Collectors.toList());
     }
 }
