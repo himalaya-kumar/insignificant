@@ -58,9 +58,7 @@ public class Problem_04 {
         Objects.requireNonNull(list,"List can not be null");
         LOGGER.info("Problem_04#lengthStream_01({})",list);
 
-        return list.stream().mapToInt(x -> 1).peek(e -> {
-            LOGGER.info("{}",e);
-        }).sum();
+        return list.stream().mapToInt(x -> 1).peek(e -> LOGGER.info("{}",e)).sum();
     }
 
     /**
@@ -71,9 +69,20 @@ public class Problem_04 {
      * @return Type Parameter T
      */
     public static <T> int lengthRecursive(List<T> list) {
+        LOGGER.info("Problem_04#lengthRecursive(list)");
+        Objects.requireNonNull(list,"List can not be null");
+        LOGGER.info("Problem_04#lengthRecursive({})",list);
         return _lengthRecursive(list,0);
     }
 
+    /**
+     * private length Recursive
+     *
+     * @param list list of elements
+     * @param i int
+     * @param <T> Type Parameter
+     * @return integer
+     */
     private static <T> int _lengthRecursive(List<T> list,int i) {
         if (list.isEmpty()) {
             return i;

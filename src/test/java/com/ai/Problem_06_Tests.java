@@ -32,13 +32,13 @@ public class Problem_06_Tests {
     @DisplayName("TEST_3:Verify Palindrome using int stream collection")
     public void verify_palindrome_using_intStream() {
         List<Integer> list = Arrays.asList(1, 2, 3, 2, 1);
-        assertThat(Problem_06.isPalindrome_IntStream(list), is(TRUE));
+        assertThat(Problem_06.isPalindromeIntStream(list), is(TRUE));
     }
 
     @Test
     @DisplayName("TEST_4:Verify not Palindrome using int stream")
     public void verify_not_palindrome_using_intStream() {
         List<Integer> list = Arrays.asList(1, 2, 3, 4, 5);
-        assertThat(Problem_06.isPalindrome_IntStream(list), is(FALSE));
+        assertThat(Problem_06.isPalindromeIntStream(list), is(FALSE));
     }
 }

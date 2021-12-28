@@ -40,6 +40,13 @@ public class Problem_05_Tests {
         assertThat(Problem_05.reverseCustomStream(numbers), hasItems(5, 4, 3, 2, 1));
     }
 
+    @Test
+    @DisplayName("TEST_4:Should Reverse A List Stream")
+    public void shouldReverseAList_ForEach() {
+        List<Integer> numbers = Arrays.asList(1,2,3,4,5);
+        assertThat(Problem_05.reverseList_ForEach(numbers), hasItems(5, 4, 3, 2, 1));
+    }
+
     private <T> ArrayDeque<T> arrayDeque(T ...args) {
         return Stream.of(args).collect(Collectors.toCollection(ArrayDeque::new));
     }

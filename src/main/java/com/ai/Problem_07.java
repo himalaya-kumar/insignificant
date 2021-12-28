@@ -13,12 +13,13 @@ public class Problem_07 {
     /**
      * Flatten a nested List
      *
-     * @param list
-     * @param elementType
-     * @param <T>
+     * @param list List of elements
+     * @param elementType element type
+     * @param <T> Type Parameter
      * @return List<T>
      **/
     public static <T> List<T> flatten(List<?> list, Class<T> elementType) {
+
         List<T> flatten = new ArrayList<T>();
         list.forEach(e -> {
             if (e instanceof List) {
@@ -42,6 +43,7 @@ public class Problem_07 {
      * @return @code{List<T>}
      */
     public static <T> List<T> flatten_stream(List<?> list, Class<T> elementType) {
+
         return list.stream()
                 .flatMap(e -> e instanceof List<?> ? flatten_stream((List<?>) e, elementType).stream() : Stream.of(e))
                 .map(e -> (T) e)
