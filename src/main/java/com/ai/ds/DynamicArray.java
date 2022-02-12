@@ -1,9 +1,7 @@
 package com.ai.ds;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.Objects;
+import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -121,5 +119,45 @@ public class DynamicArray<E> implements Iterable<E> {
     @Override
     public Iterator<E> iterator() {
         return null;
+    }
+
+    private class DynamicIterator<E> implements Iterator<E> {
+        private int cursor;
+
+        @Override
+        public boolean hasNext() {
+            return this.cursor != size;
+        }
+
+        @Override
+        public E next() {
+            if (this.cursor > DynamicArray.this.size) {
+                throw new NoSuchElementException("No Element present at this position.");
+            }
+
+            if (this.cursor > DynamicArray.this.elements.length) {
+                throw new ConcurrentModificationException();
+            }
+
+            final E element = (E) DynamicArray.this.getElement(this.cursor);
+
+            this.cursor++;
+            return element;
+        }
+
+        @Override
+        public void remove() {
+            if (this.cursor < 0) throw new IllegalStateException();
+            DynamicArray.this.remove(this.cursor);
+            this.cursor --;
+        }
+
+        @Override
+        public void forEachRemaining(Consumer<? super E> action) {
+            Objects.requireNonNull(action);
+            for (int i = 0; i < DynamicArray.this.size; i++) {
+                action.accept((E)DynamicArray.this.getElement(i));
+            }
+        }
     }
 }

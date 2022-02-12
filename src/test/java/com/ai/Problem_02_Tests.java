@@ -25,6 +25,7 @@ public class Problem_02_Tests {
     @DisplayName("TEST_1:Get Last Element")
     public void getLastElement_List_way_Test() {
         assertThat(Problem_02.secondLast(asList("a", "b", "c", "d", "e")), is(equalTo("d")));
+        assertThat(Problem_02.secondLast(asList("a", "b", "c", "d", "e")), is(equalTo("d")));
     }
 
     @Test
