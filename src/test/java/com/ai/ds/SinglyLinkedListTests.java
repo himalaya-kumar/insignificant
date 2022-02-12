@@ -6,17 +6,17 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-@DisplayName("Singly Linked List Class")
+@DisplayName("Singly Linked List Test Cases")
 public class SinglyLinkedListTests {
 
     @Test
     @DisplayName("TEST_1: Assert Conditions")
     public void singlyLinkedListEmpty() {
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-        assertThat(singlyLinkedList.isEmpty(),is(true));
-        assertThat(singlyLinkedList.size(),is(0));
-        assertThat(singlyLinkedList.count(),is(0));
-        assertThat(singlyLinkedList.toString(),is(""));
+        assertThat(singlyLinkedList.isEmpty(), is(true));
+        assertThat(singlyLinkedList.size(), is(0));
+        assertThat(singlyLinkedList.count(), is(0));
+        assertThat(singlyLinkedList.toString(), is(""));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class SinglyLinkedListTests {
         singlyLinkedList.insertFirst(10);
         singlyLinkedList.insertLast(3);
         singlyLinkedList.insertNth(1, 4);
-        assertThat(singlyLinkedList.toString(),is("10->7->5->3->1"));
+        assertThat(singlyLinkedList.toString(), is("10->7->5->3->1"));
     }
 
     @Test
@@ -40,11 +40,11 @@ public class SinglyLinkedListTests {
         singlyLinkedList.insertFirst(10);
         singlyLinkedList.insertLast(3);
         singlyLinkedList.insertNth(1, 4);
-        assertThat(singlyLinkedList.toString(),is("10->7->5->3->1"));
-        assertThat(singlyLinkedList.search(10),is(true));
-        assertThat(singlyLinkedList.search(5),is(true));
-        assertThat(singlyLinkedList.search(1),is(true));
-        assertThat(singlyLinkedList.search(100),is(false));
+        assertThat(singlyLinkedList.toString(), is("10->7->5->3->1"));
+        assertThat(singlyLinkedList.search(10), is(true));
+        assertThat(singlyLinkedList.search(5), is(true));
+        assertThat(singlyLinkedList.search(1), is(true));
+        assertThat(singlyLinkedList.search(100), is(false));
     }
 
     @Test
@@ -57,7 +57,7 @@ public class SinglyLinkedListTests {
         singlyLinkedList.insertLast(3);
         singlyLinkedList.insertNth(1, 4);
         singlyLinkedList.clear();
-        assertThat(singlyLinkedList.size() == 0,is(true));
+        assertThat(singlyLinkedList.size() == 0, is(true));
     }
 
     @Test
@@ -69,11 +69,11 @@ public class SinglyLinkedListTests {
         singlyLinkedList.insertFirst(10);
         singlyLinkedList.insertLast(3);
         singlyLinkedList.insertNth(1, 4);
-        assertThat(singlyLinkedList.toString(),is("10->7->5->3->1"));
+        assertThat(singlyLinkedList.toString(), is("10->7->5->3->1"));
         singlyLinkedList.delete();
-        assertThat(singlyLinkedList.toString(),is("10->7->5->3"));
+        assertThat(singlyLinkedList.toString(), is("10->7->5->3"));
         singlyLinkedList.deleteNth(2);
-        assertThat(singlyLinkedList.toString(),is("10->7->3"));
+        assertThat(singlyLinkedList.toString(), is("10->7->3"));
 
     }
 }

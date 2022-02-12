@@ -12,21 +12,20 @@ public class SinglyLinkedList {
         size = 0;
     }
 
-    public SinglyLinkedList(Node head, int size){
+    public SinglyLinkedList(Node head, int size) {
         this.head = head;
         this.size = size;
     }
 
     //1.2.
-    public void insertNth(int data,int position) {
-        checkBounds(position,0,size);
+    public void insertNth(int data, int position) {
+        checkBounds(position, 0, size);
         Node newNode = new Node(data);
         //two conditions
         // position is head == null
         if (head == null) {
             head = newNode;
-        }
-        else if (position == 0) {
+        } else if (position == 0) {
             newNode.next = head;
             head = newNode;
         } else {
@@ -40,36 +39,50 @@ public class SinglyLinkedList {
         size++;
     }
 
-    public void insertFirst(int data) {insertNth(data,0);}
-    public void insertLast(int data) {insertNth(data,size);}
-    public void append(int data) {insertLast(data);}
+    public void insertFirst(int data) {
+        insertNth(data, 0);
+    }
+
+    public void insertLast(int data) {
+        insertNth(data, size);
+    }
+
+    public void append(int data) {
+        insertLast(data);
+    }
 
     //3.
     public void deleteNth(int position) {
-       checkBounds(position,0,size);
-       if (position == 0) {
-           Node destroy = head;
-           head = head.next;
-           destroy = null;
-           size --;
-           return;
-       }
-       Node currentNode = head;
-       for (int i = 0;i < position - 1;i++) {
-           currentNode = currentNode.next;
-       }
-       Node destroy = currentNode.next;
-       currentNode.next = currentNode.next.next;
-       destroy = null;
-       size --;
+        checkBounds(position, 0, size);
+        if (position == 0) {
+            Node destroy = head;
+            head = head.next;
+            destroy = null;
+            size--;
+            return;
+        }
+        Node currentNode = head;
+        for (int i = 0; i < position - 1; i++) {
+            currentNode = currentNode.next;
+        }
+        Node destroy = currentNode.next;
+        currentNode.next = currentNode.next.next;
+        destroy = null;
+        size--;
     }
-    public void  delete() {deleteNth(size - 1);}
-    public void deleteHead() {deleteNth(0);}
+
+    public void delete() {
+        deleteNth(size - 1);
+    }
+
+    public void deleteHead() {
+        deleteNth(0);
+    }
 
     //4.
-    public boolean search(int key){
+    public boolean search(int key) {
         Node current = head;
-        while (current!=null) {
+        while (current != null) {
             if (current.value == key) {
                 return true;
             }
@@ -79,7 +92,7 @@ public class SinglyLinkedList {
     }
 
     public int getNth(int position) {
-        checkBounds(position,0,size -1);
+        checkBounds(position, 0, size - 1);
         Node current = head;
         for (int i = 0; i < position; i++) {
             current = current.next;
@@ -93,21 +106,29 @@ public class SinglyLinkedList {
         StringJoiner joiner = new StringJoiner("->");
         Node current = head;
         while (current != null) {
-            joiner.add(current.value+"");
+            joiner.add(current.value + "");
             current = current.next;
         }
         return joiner.toString();
     }
 
-    public boolean isEmpty() {return this.size == 0;}
-    public int size() {return this.size;}
-    public Node getHead() {return this.head;}
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
 
-    public int count(){
+    public int size() {
+        return this.size;
+    }
+
+    public Node getHead() {
+        return this.head;
+    }
+
+    public int count() {
         int countValue = 0;
         Node current = head;
         while (current != null) {
-            countValue ++;
+            countValue++;
             current = current.next;
         }
         return countValue;
@@ -125,7 +146,7 @@ public class SinglyLinkedList {
     }
 
     Node reverseList(Node node) {
-        Node prev = null,current = node,next;
+        Node prev = null, current = node, next;
         while (current != null) {
             // 1 -> 2 -> 3
             next = current.next;
@@ -133,14 +154,14 @@ public class SinglyLinkedList {
             prev = current;
             current = next;
         }
-        node  = prev;
+        node = prev;
         return node;
     }
 
-    public void swapNodes(int a,int b) {
+    public void swapNodes(int a, int b) {
         Node currentNode = head;
         Node temp = null;
-        while (currentNode!= null) {
+        while (currentNode != null) {
             if (currentNode.next.value == a) {
                 temp = currentNode.next;
             }
@@ -151,7 +172,7 @@ public class SinglyLinkedList {
         }
     }
 
-    public boolean detectLoop(){
+    public boolean detectLoop() {
         Node currentNodeFast = head;
         Node currentNodeSlow = head;
         boolean flag = false;
@@ -166,9 +187,9 @@ public class SinglyLinkedList {
         return flag;
     }
 
-    private void checkBounds(int position,int low, int high) {
+    private void checkBounds(int position, int low, int high) {
         if (position > high || position < low)
-            throw new IndexOutOfBoundsException(position +"");
+            throw new IndexOutOfBoundsException(position + "");
     }
 }
 
@@ -176,13 +197,14 @@ class Node {
     int value;
     Node next;
 
-    Node(){}
-
-    Node(int value) {
-        this(value,null);
+    Node() {
     }
 
-    Node(int value,Node next) {
+    Node(int value) {
+        this(value, null);
+    }
+
+    Node(int value, Node next) {
         this.value = value;
         this.next = next;
     }

@@ -21,7 +21,6 @@ public class DynamicArray<E> implements Iterable<E> {
      * DynamicArray Constructor
      *
      * @param capacity Capacity of element
-     *
      */
     public DynamicArray(final int capacity) {
         this.size = 0;
@@ -29,7 +28,7 @@ public class DynamicArray<E> implements Iterable<E> {
         this.elements = new Object[this.capacity];
     }
 
-    public DynamicArray(){
+    public DynamicArray() {
         this(DEFAULT_CAPACITY);
     }
 
@@ -43,20 +42,19 @@ public class DynamicArray<E> implements Iterable<E> {
             throw new NoSuchElementException("Null element can not be added");
         }
         if (this.elements.length == this.size) {
-            this.elements = Arrays.copyOf(this.elements,newCapacity(2 * this.capacity));
+            this.elements = Arrays.copyOf(this.elements, newCapacity(2 * this.capacity));
         }
         this.elements[this.size] = element;
         size++;
     }
 
     /**
-     *
      * @param index where element needs to be removed
      * @return element which is removed
      */
-    public E remove(final int index){
+    public E remove(final int index) {
         final E oldRemoveElement = get(index);
-        fastRemove(this.elements,index);
+        fastRemove(this.elements, index);
 
         if (this.capacity < DEFAULT_CAPACITY && size * 4 <= this.capacity) {
             this.elements = Arrays.copyOf(this.elements, newCapacity(this.capacity / 2));
@@ -64,16 +62,22 @@ public class DynamicArray<E> implements Iterable<E> {
         return oldRemoveElement;
     }
 
-    public int getSize() {return this.size;}
+    public int getSize() {
+        return this.size;
+    }
 
-    public boolean isEmpty() {return getSize() == 0;}
+    public boolean isEmpty() {
+        return getSize() == 0;
+    }
 
-    public Stream<E> stream(){return StreamSupport.stream(spliterator(),false);}
+    public Stream<E> stream() {
+        return StreamSupport.stream(spliterator(), false);
+    }
 
-    private void fastRemove(final Object[] elements,final int index) {
+    private void fastRemove(final Object[] elements, final int index) {
         final int newSize = this.size - 1;
         if (newSize > index) {
-            System.arraycopy(elements,index + 1,elements,index,newSize - index);
+            System.arraycopy(elements, index + 1, elements, index, newSize - index);
         }
         elements[this.size = newSize] = null;
     }
@@ -81,15 +85,14 @@ public class DynamicArray<E> implements Iterable<E> {
     /**
      * put element to certain index
      *
-     * @param index index of element to be placed
+     * @param index   index of element to be placed
      * @param element element needs to be placed
      */
-    public void put(final int index,E element) {
+    public void put(final int index, E element) {
         this.elements[index] = element;
     }
 
     /**
-     *
      * @param index
      * @return
      */
@@ -98,7 +101,6 @@ public class DynamicArray<E> implements Iterable<E> {
     }
 
     /**
-     *
      * @param index
      * @return
      */
@@ -107,7 +109,6 @@ public class DynamicArray<E> implements Iterable<E> {
     }
 
     /**
-     *
      * @param newCapacity
      * @return
      */
@@ -149,14 +150,14 @@ public class DynamicArray<E> implements Iterable<E> {
         public void remove() {
             if (this.cursor < 0) throw new IllegalStateException();
             DynamicArray.this.remove(this.cursor);
-            this.cursor --;
+            this.cursor--;
         }
 
         @Override
         public void forEachRemaining(Consumer<? super E> action) {
             Objects.requireNonNull(action);
             for (int i = 0; i < DynamicArray.this.size; i++) {
-                action.accept((E)DynamicArray.this.getElement(i));
+                action.accept((E) DynamicArray.this.getElement(i));
             }
         }
     }
