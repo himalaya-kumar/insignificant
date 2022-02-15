@@ -31,14 +31,45 @@
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<!--Trying to see if display name shown in command line-->
-					<version>3.0.0-M5</version>
-					<dependencies>
-						<dependency>
-							<groupId>org.junit.jupiter</groupId>
-							<artifactId>junit-jupiter-engine</artifactId>
-							<version>5.8.2</version>
-						</dependency>
-					</dependencies>
+					<version>2.22.2</version>
+					<configuration>
+						<skip>true</skip>
+					</configuration>
+					<executions>
+						<execution>
+							<id>TestNg-execution</id>
+							<phase>test</phase>
+							<goals>
+								<goal>test</goal>
+							</goals>
+							<configuration>
+								<skip>false</skip>
+								<includes>
+									<include>%regex[.*DsTest.*]</include>
+								</includes>
+								<junitArtifactName>dev:null</junitArtifactName>
+								<testFailureIgnore>true</testFailureIgnore>
+								<suiteXmlFiles>
+									<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+								</suiteXmlFiles>
+							</configuration>
+						</execution>
+						<execution>
+							<id>Junit-execution</id>
+							<phase>test</phase>
+							<goals>
+								<goal>test</goal>
+							</goals>
+							<configuration>
+								<skip>false</skip>
+								<excludes>
+									<exclude>%regex[.*DsTest.*]</exclude>
+								</excludes>
+								<testNGArtifactName>dev:null</testNGArtifactName>
+								<testFailureIgnore>true</testFailureIgnore>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -55,6 +86,13 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.22</version>
 			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.7</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>

@@ -1,0 +1,35 @@
+package com.ai.ds;
+
+import org.testng.annotations.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+@Test(suiteName = "Queue_Tests")
+public class QueueDsTest {
+
+    @Test(testName = "TEST_1:INSERTIONS")
+    public void queueInitAndInsertion() {
+        Queue testQueue = new Queue(4);
+        testQueue.insert(5); //0
+        testQueue.insert(6); //1
+        testQueue.insert(7); //2
+        testQueue.insert(8);
+        assertThat(testQueue.toString(),is("[5, 6, 7, 8]"));
+    }
+
+    @Test(testName = "TEST_1:DELETION")
+    public void queueInitAndDeletion() {
+        Queue testQueue = new Queue();
+        testQueue.insert(5); //0
+        testQueue.insert(6); //1
+        testQueue.insert(7); //2
+        testQueue.insert(8);
+        testQueue.insert(9);
+        testQueue.insert(10);
+        testQueue.insert(11);
+        testQueue.remove();
+        testQueue.remove();
+        assertThat(testQueue.toString(),is("[7, 8, 9, 10, 11]"));
+    }
+}
