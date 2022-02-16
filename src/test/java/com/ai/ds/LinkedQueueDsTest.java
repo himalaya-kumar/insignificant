@@ -1,10 +1,12 @@
 package com.ai.ds;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-@Test(suiteName = "LinkedQueueDsTest")
+@DisplayName("Linked Queue Tests")
 public class LinkedQueueDsTest {
 
     @Test

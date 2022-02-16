@@ -1,14 +1,13 @@
 package com.ai.ds;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-@Test(suiteName = "Queue_Tests")
 public class QueueDsTest {
 
-    @Test(testName = "TEST_1:INSERTIONS")
+    @Test
     public void queueInitAndInsertion() {
         Queue testQueue = new Queue(4);
         testQueue.insert(5); //0
@@ -18,7 +17,7 @@ public class QueueDsTest {
         assertThat(testQueue.toString(),is("[5, 6, 7, 8]"));
     }
 
-    @Test(testName = "TEST_1:DELETION")
+    @Test
     public void queueInitAndDeletion() {
         Queue testQueue = new Queue();
         testQueue.insert(5); //0

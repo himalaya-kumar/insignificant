@@ -31,45 +31,29 @@
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<!--Trying to see if display name shown in command line-->
-					<version>2.22.2</version>
+					<version>3.0.0-M5</version>
 					<configuration>
-						<skip>true</skip>
+						<skip>false</skip>
+						<statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+							<disable>false</disable>
+							<version>3.0</version>
+							<usePhrasedFileName>false</usePhrasedFileName>
+							<usePhrasedTestSuiteClassName>true</usePhrasedTestSuiteClassName>
+							<usePhrasedTestCaseClassName>true</usePhrasedTestCaseClassName>
+							<usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
+						</statelessTestsetReporter>
+						<consoleOutputReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5ConsoleOutputReporter">
+							<encoding>UTF-8</encoding>
+							<disable>false</disable>
+
+						</consoleOutputReporter>
+						<statelessTestsetInfoReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5StatelessTestsetInfoReporter">
+							<disable>false</disable>
+							<usePhrasedFileName>false</usePhrasedFileName>
+							<usePhrasedClassNameInRunning>true</usePhrasedClassNameInRunning>
+							<usePhrasedClassNameInTestCaseSummary>true</usePhrasedClassNameInTestCaseSummary>
+						</statelessTestsetInfoReporter>
 					</configuration>
-					<executions>
-						<execution>
-							<id>TestNg-execution</id>
-							<phase>test</phase>
-							<goals>
-								<goal>test</goal>
-							</goals>
-							<configuration>
-								<skip>false</skip>
-								<includes>
-									<include>%regex[.*DsTest.*]</include>
-								</includes>
-								<junitArtifactName>dev:null</junitArtifactName>
-								<testFailureIgnore>true</testFailureIgnore>
-								<suiteXmlFiles>
-									<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-								</suiteXmlFiles>
-							</configuration>
-						</execution>
-						<execution>
-							<id>Junit-execution</id>
-							<phase>test</phase>
-							<goals>
-								<goal>test</goal>
-							</goals>
-							<configuration>
-								<skip>false</skip>
-								<excludes>
-									<exclude>%regex[.*DsTest.*]</exclude>
-								</excludes>
-								<testNGArtifactName>dev:null</testNGArtifactName>
-								<testFailureIgnore>true</testFailureIgnore>
-							</configuration>
-						</execution>
-					</executions>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -87,14 +71,6 @@
 			<version>1.18.22</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
-		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>6.8.7</version>
-			<scope>test</scope>
-		</dependency>
-
 		<dependency>
 			<groupId>org.deeplearning4j</groupId>
 			<artifactId>deeplearning4j-core</artifactId>
@@ -154,5 +130,13 @@
 			<version>${hamcrest.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.surefire/surefire-extensions-api -->
+		<dependency>
+			<groupId>org.apache.maven.surefire</groupId>
+			<artifactId>surefire-extensions-api</artifactId>
+			<version>3.0.0-M5</version>
+		</dependency>
+
+
 	</dependencies>
 </project>
