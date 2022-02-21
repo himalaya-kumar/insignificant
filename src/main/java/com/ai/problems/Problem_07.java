@@ -37,10 +37,10 @@ public class Problem_07 {
     /**
      * Flatten a nested list
      *
-     * @param list
-     * @param elementType
-     * @param <T>
-     * @return @code{List<T>}
+     * @param list which needs to be flat
+     * @param elementType element type of need to be flatten
+     * @param <T> Generic value
+     * @return {@code List<T>}
      */
     public static <T> List<T> flatten_stream(List<?> list, Class<T> elementType) {
 

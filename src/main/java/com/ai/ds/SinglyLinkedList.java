@@ -145,17 +145,17 @@ public class SinglyLinkedList {
         size = 0;
     }
 
-    Node reverseList(Node node) {
-        Node prev = null, current = node, next;
+    Node reverseList(Node nodeOfHead) {
+        Node prev = null, current = nodeOfHead, nextTemporary;
         while (current != null) {
-            // 1 -> 2 -> 3
-            next = current.next;
+            // 1{1,2} -> 2{2,3} -> 3
+            nextTemporary = current.next;
             current.next = null;
             prev = current;
-            current = next;
+            current = nextTemporary;
         }
-        node = prev;
-        return node;
+        nodeOfHead = prev;
+        return nodeOfHead;
     }
 
     public void swapNodes(int a, int b) {

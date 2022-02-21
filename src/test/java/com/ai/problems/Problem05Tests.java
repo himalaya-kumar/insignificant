@@ -1,6 +1,5 @@
 package com.ai.problems;
 
-import com.ai.problems.Problem_05;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +16,7 @@ import static org.hamcrest.Matchers.hasItems;
  * Problem 05 Tests
  */
 @DisplayName("SUITE_5")
-public class Problem_05_Tests {
+public class Problem05Tests {
 
 
     @Test

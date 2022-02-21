@@ -1,12 +1,11 @@
 package com.ai.problems;
 
-import com.ai.problems.Problem_20;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @DisplayName("SUITE_20")
 public class Problem_20_Tests {

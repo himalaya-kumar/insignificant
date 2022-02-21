@@ -13,8 +13,8 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.junit.internal.matchers.IsCollectionContaining.hasItems;
 
 @DisplayName("SUITE_7")
 public class Problem_07_Tests {

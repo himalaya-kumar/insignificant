@@ -1,17 +1,16 @@
 package com.ai.problems;
 
-import com.ai.problems.Problem_34;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.stream.IntStream;
 
-import static java.util.Arrays.asList;
 import static java.util.AbstractMap.SimpleEntry;
+import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.junit.internal.matchers.IsCollectionContaining.hasItems;
 
 @DisplayName("SUITE_34")
 public class Problem_34_Tests {

@@ -1,7 +1,5 @@
 package com.ai.problems;
 
-import org.bytedeco.javacpp.freenect;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,9 +13,9 @@ public class Problem_09 {
     /**
      * For each approach
      *
-     * @param list
-     * @param <T>
-     * @return
+     * @param list of elements
+     * @param <T> Type Parameter
+     * @return List
      */
     public static <T> List<List<T>> pack(List<T> list){
         T lastElement = null;

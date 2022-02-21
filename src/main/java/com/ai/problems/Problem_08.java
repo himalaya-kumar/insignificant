@@ -10,12 +10,12 @@ import java.util.Objects;
 public class Problem_08 {
 
     /**
-     * This is for consecutive i.e. for only near near
+     * This is for consecutive i.e. for only near
      * not equal after while
      *
-     * @param list
-     * @param <T>
-     * @return
+     * @param list list of values
+     * @param <T> Type parameter
+     * @return {@code List}
      */
     public static <T> List<T> compress(List<T> list) {
        //Defensive Coding

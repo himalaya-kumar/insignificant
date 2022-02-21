@@ -16,7 +16,7 @@ public class Problem_30 {
      *
      **/
     public static List<Integer> primeFactors(final int input) {
-        final var firstPrime = 2;
+        final int firstPrime = 2;
         List<Integer> res = new ArrayList<>();
 
         for (int currentPrime = firstPrime;currentPrime <= (input / firstPrime);currentPrime++) {

@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import lombok.var;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,17 +29,17 @@ public class UtilityClass {
 	 */
 	public String readFileAndGiveDataBackInString(File file) throws IOException {
 		LOGGER.info("UtilityClass#readFileAndGiveDataBackInString(File)");
-		var fileTemp = file;
-		var fileReader = new FileReader(fileTemp);
-		var st = Optional.of(new String());
-
-		try (var bufferedReader = new BufferedReader(fileReader)) {
-			while ((st = Optional.of(bufferedReader.readLine())) != null) {
-				return st.orElse("EMPTY_STRING");
-			}
-		} catch (IllegalArgumentException e) {
-			throw new IllegalArgumentException("EMPTY_STRING FROM CATCH");
-		}
+		File fileTemp = file;
+//		FileReader fileReader = new FileReader(fileTemp);
+//		String st = Optional.of(new String());
+//
+//		try (var bufferedReader = new BufferedReader(fileReader)) {
+//			while ((st = Optional.of(bufferedReader.readLine())) != null) {
+//				return st.orElse("EMPTY_STRING");
+//			}
+//		} catch (IllegalArgumentException e) {
+//			throw new IllegalArgumentException("EMPTY_STRING FROM CATCH");
+//		}
 		return "EMPTY_STRING";
 	}
 

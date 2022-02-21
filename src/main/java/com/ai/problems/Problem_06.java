@@ -3,10 +3,7 @@ package com.ai.problems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -31,6 +28,7 @@ public class Problem_06 {
         Collections.reverse(list);
         return Objects.equals(list, compareList);
     }
+
 
     /**
      * Palindrome using int stream

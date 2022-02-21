@@ -1,13 +1,12 @@
 package com.ai.problems;
 
-import com.ai.problems.Problem_30;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.internal.matchers.IsCollectionContaining.hasItems;
+import static org.hamcrest.Matchers.hasItems;
 
 @DisplayName("SUITE_30")
 public class Problem_30_Tests {

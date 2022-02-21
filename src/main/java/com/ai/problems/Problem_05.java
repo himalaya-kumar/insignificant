@@ -111,7 +111,7 @@ public class Problem_05 {
             LOGGER.info("Problem_05#reverse_IntStream(list):Argument Can't be null");
             throw new IllegalArgumentException("Argument Can't be null");
         }
-        var reversed = new LinkedList<T>();
+        LinkedList<T> reversed = new LinkedList<T>();
         for (T e : linkedList) {
             reversed.addFirst(e);
         }

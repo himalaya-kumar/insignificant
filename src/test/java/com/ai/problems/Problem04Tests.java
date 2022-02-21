@@ -1,6 +1,5 @@
 package com.ai.problems;
 
-import com.ai.problems.Problem_04;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 
 @DisplayName("SUITE_4")
-public class Problem_04_Tests {
+public class Problem04Tests {
 
     @Test
     @DisplayName("TEST_1:Empty list should be 0")

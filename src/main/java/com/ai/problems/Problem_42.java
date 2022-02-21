@@ -33,8 +33,8 @@ public class Problem_42 {
      * @return boolean true or false
      */
     public static boolean checkIfStringIsAnagram1(String stringActual,String stringExpected) {
-        String stringActual_spaces = stringActual.toLowerCase().strip().replaceAll(" ","");
-        String stringExpected_spaces = stringExpected.toLowerCase().strip().replaceAll(" ","");
+        String stringActual_spaces = stringActual.toLowerCase().replaceAll(" ","");
+        String stringExpected_spaces = stringExpected.toLowerCase().replaceAll(" ","");
 
         if (stringActual.length() != stringExpected.length()) return false;
         else {
@@ -63,8 +63,8 @@ public class Problem_42 {
      * @return boolean true or false
      */
     public static boolean checkIfStringIsAnagram2(String stringActual,String stringExpected) {
-        String stringActual_spaces = stringActual.toLowerCase().strip().replaceAll(" ","");
-        String stringExpected_spaces = stringExpected.toLowerCase().strip().replaceAll(" ","");
+        String stringActual_spaces = stringActual.toLowerCase().replaceAll(" ","");
+        String stringExpected_spaces = stringExpected.toLowerCase().replaceAll(" ","");
 
         if (stringActual_spaces.length() != stringExpected_spaces.length()) return false;
         else {

@@ -1,6 +1,5 @@
 package com.ai.problems;
 
-import com.ai.problems.Problem_02;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,7 +20,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * TESTS for P02
  */
 @DisplayName("SUITE_2")
-public class Problem_02_Tests {
+public class Problem02Tests {
+
     @Test
     @DisplayName("TEST_1:Get Last Element")
     public void getLastElement_List_way_Test() {

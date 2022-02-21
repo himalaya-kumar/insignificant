@@ -1,6 +1,5 @@
 package com.ai.problems;
 
-import com.ai.problems.Problem_06;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +12,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @DisplayName("SUITE_6")
-public class Problem_06_Tests {
+public class Problem06Tests {
 
     @Test
     @DisplayName("TEST_1:Verify Palindrome using collection")
