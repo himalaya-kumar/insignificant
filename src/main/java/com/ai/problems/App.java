@@ -1,57 +1,67 @@
 package com.ai.problems;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class App {
-	public static void main(String[] args) throws IOException {
-		Logger LOGGER = LoggerFactory.getLogger(App.class);
-		System.out.println("Hello World!");
-		final String message = "Hello logging";
-		LOGGER.trace(message);
-		LOGGER.debug(message);
-		LOGGER.info(message);
-		LOGGER.warn(message);
-		LOGGER.error(message);
-	}
+    public static void main(String[] args) throws IOException {
+        Logger LOGGER = LoggerFactory.getLogger(App.class);
+        System.out.println("Hello World!");
+        final String message = "Hello {} logging";
+//        LOGGER.trace(message);
+//        LOGGER.debug(message);
+        LOGGER.info(message,"welcome");
+//        LOGGER.warn(message);
+//        LOGGER.error(message);
+		System.out.println(solution(15,8));
+    }
 
-	//Create A String of Length N and which have k number of element
-	public String solutions(int N,int K) {
-		return "";
-	}
 
-		public String solution(int N, int K) {
-			//A palindrom of k distinct and of lenght n
+    //Create A String of Length N and which have k number of element
+    public static String solution(int N, int K) {
+		List<Character> characters = simplePalindromePattern(N,K);
+		StringBuilder stringBuilder = new StringBuilder();
+		characters.forEach(stringBuilder::append);
+		return stringBuilder.toString();
+    }
 
-			Random r = new Random();
-			ArrayList<Character> randomChar = new ArrayList<Character>(K);
-			ArrayList<Character> randomCharWord = new ArrayList<Character>(N);
-			for(int i = 0; i < K;i++){
-				randomChar.add((char)(r.nextInt(26) +'a'));
+
+    public static List<Character> simplePalindromePattern(int N, int K) {
+		if (N < K) throw new IllegalArgumentException("");
+		List<Character> randomCharWord= generateRandomCharacter(N,K);
+		LinkedList<Character> palindromeList = new LinkedList<Character>();
+		Random random = new Random();
+		if (N % 2 == 0) {
+			int randomN = random.nextInt(K - 1);
+			for (int i = 0; i < N/2;i++) {
+				palindromeList.addFirst(randomCharWord.get(randomN));
+				palindromeList.addLast(randomCharWord.get(randomN));
+				randomN = random.nextInt(K - 1);
 			}
-
-			for(int i = 0; i < N;i++) {
-				randomCharWord.add(randomChar.get(r.nextInt(K)));
+		} if (N % 2 != 0) {
+			int randomN = random.nextInt(K - 1);
+			for (int i = 0; i < N/2;i++) {
+				palindromeList.addFirst(randomCharWord.get(randomN));
+				palindromeList.addLast(randomCharWord.get(randomN));
+				randomN = random.nextInt(K - 1);
 			}
-
-			ArrayList<Character> randomCharWordTemp = randomCharWord;
-
-			Collections.reverse(randomCharWordTemp);
-			//System.out.println(randomCharWordTemp);
-			if(Objects.equals(randomCharWordTemp,randomCharWord)){
-				StringBuilder s = new StringBuilder();
-				randomCharWord.stream().forEach(j -> s.append(j));
-				return s.toString();
-			} else {
-				solution(N,K);
-			}
-
-			return "";
+			palindromeList.add(N/2 - 1,randomCharWord.get(randomN));
+			//0 1 2 3 4 5 6
 		}
+		return palindromeList;
+    }
+
+
+	public static ArrayList<Character> generateRandomCharacter(int N,int K) {
+        Random random = new Random();
+        ArrayList<Character> randCharacters = new ArrayList<>();
+        for (int i = 0; i < K; i++) {
+            randCharacters.add((char) (random.nextInt(26) + 'a'));
+        }
+        return randCharacters;
+    }
 }
