@@ -10,6 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class LinkedQueueDsTest {
 
     @Test
+    @DisplayName("TEST_1:Linked Queue Insertions")
     public void testInsertionAndInitialization() {
         LinkedQueue linkedQueue = new LinkedQueue();
         linkedQueue.enqueue(1);
@@ -21,6 +22,7 @@ public class LinkedQueueDsTest {
     }
 
     @Test
+    @DisplayName("TEST_2:LinkedQueue and Deletions")
     public void testDeletion() {
         LinkedQueue linkedQueue = new LinkedQueue();
         linkedQueue.enqueue(1);

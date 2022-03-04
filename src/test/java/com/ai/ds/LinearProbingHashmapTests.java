@@ -20,7 +20,7 @@ public class LinearProbingHashmapTests {
 
 
     @Test
-    @DisplayName("TEST_")
+    @DisplayName("TEST_2: Insertions and Deletions")
     public void insertionsAndDeletions() {
         LinearProbingHashmap linearProbingHashmap = new LinearProbingHashmap(16);
         linearProbingHashmap.insert(6);

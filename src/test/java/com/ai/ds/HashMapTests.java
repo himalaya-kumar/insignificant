@@ -19,7 +19,7 @@ public class HashMapTests {
     }
 
     @Test
-    @DisplayName("TEST_1:Init and Insertions")
+    @DisplayName("TEST_2:Init and Insertions")
     public void hashmapInitAndDeletions() {
         Hashmap hashmap = new Hashmap(4);
         hashmap.insertHash(6);

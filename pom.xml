@@ -126,7 +126,5 @@
 			<artifactId>surefire-extensions-api</artifactId>
 			<version>3.0.0-M5</version>
 		</dependency>
-
-
 	</dependencies>
 </project>

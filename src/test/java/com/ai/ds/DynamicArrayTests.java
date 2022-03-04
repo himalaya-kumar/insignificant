@@ -37,7 +37,7 @@ public class DynamicArrayTests {
     }
 
     @Test
-    @DisplayName("TEST_2 : Array if able to remove")
+    @DisplayName("TEST_3 : Array if able to remove")
     public void insertElementFromArray() {
         DynamicArray<String> stringDynamicArray = new DynamicArray<>();
         stringDynamicArray.addElements("a");

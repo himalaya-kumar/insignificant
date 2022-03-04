@@ -23,7 +23,7 @@ public class DoubleEndedQueueTests {
     }
 
     @Test
-    @DisplayName("TEST_1:Init and Addition")
+    @DisplayName("TEST_2:Init and Deletions")
     public void doubleEndedQueueInitAndAdditionAndDeletion() {
         DoubleEndedQueue<Integer> doubleEndedQueue = new DoubleEndedQueue<>();
         doubleEndedQueue.addFirst(1);
