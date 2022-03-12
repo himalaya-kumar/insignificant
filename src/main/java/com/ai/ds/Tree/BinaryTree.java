@@ -193,7 +193,7 @@ public class BinaryTree {
         }
     }
 
-    static class Node {
+    public static class Node {
         public int dataInTheNode;
         public Node leftPartOfTheNode;
         public Node rightPartOfTheNode;

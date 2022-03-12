@@ -1,8 +1,10 @@
 package com.ai.ds;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+@Tag("CircularBufferTests")
 @DisplayName("Circular Buffer Tests")
 public class CircularBufferTests {
 
